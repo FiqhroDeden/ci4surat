@@ -59,6 +59,13 @@ class Golongan extends BaseController
         return redirect()->to('/golongan');
     }
 
+    public function delete($id)
+    {
+        $this->golonganModel->delete($id);
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+        return redirect()->to('/golongan');
+    }
+
 
     //--------------------------------------------------------------------
 

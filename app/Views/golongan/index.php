@@ -4,6 +4,11 @@
     <h1>Golongan</h1>
 </div>
 <div class="section-body">
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif; ?>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h4>Kelola Golongan</h4>
@@ -37,7 +42,7 @@
                                 <td>
 
                                     <a href="/golongan/edit/<?= $g['id']; ?>"><button class="btn btn-primary"><span class="fa fa-edit"></span></button></a>
-                                    <a href="/golongan/delete/<?= $g['id']; ?>"><button class="btn btn-danger"><span class="fa fa-trash"></span></button></a>
+                                    <a href="/golongan/delete/<?= $g['id']; ?>"><button onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></button></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
