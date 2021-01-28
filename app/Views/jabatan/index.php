@@ -4,6 +4,11 @@
     <h1>Jabatan</h1>
 </div>
 <div class="section-body">
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif; ?>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h4>Kelola Jabatan</h4>
@@ -30,30 +35,26 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rektor Universitas Pattimura</td>
-                            <td>001</td>
-                            <td><span class="badge badge-pill badge-dark">Level 1</span></td>
-                            <td></td>
-                            <td>
-                                <button class="btn btn-primary"><span class="fa fa-edit"></span></button>
-                                <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                            </td>
+                        <?php $i = 1 ?>
+                        <?php foreach ($jabatan as $j) : ?>
+                            <tr>
+                                <td><?= $i++; ?></td>
+                                <td><?= $j['nama_jabatan']; ?></td>
+                                <td><?= $j['kode_jabatan']; ?></td>
+                                <td><span class="badge badge-pill badge-<?= $j['level'] == 1 ? 'dark'
+                                                                            : ($j['level'] == 2 ? 'primary'
+                                                                                : ($j['level'] == 3 ? 'info'
+                                                                                    : ($j['level'] == 4 ? 'success'
+                                                                                        : 'warning'))); ?>">Level <?= $j['level']; ?></span></td>
+                                <td><?= $j['atasan']; ?></td>
+                                <td>
+                                    <a href="/jabatan/edit/<?= $j['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></button></a>
+                                    <a href="/jabatan/delete/<?= $j['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Sekertaris</td>
-                            <td>002</td>
-                            <td><span class="badge badge-pill badge-dark">Level 2</span></td>
-                            <td>Rektor Universitas Pattimura</td>
-                            <td>
-                                <button class="btn btn-primary"><span class="fa fa-edit"></span></button>
-                                <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                            </td>
+                            </tr>
+                        <?php endforeach; ?>
 
-                        </tr>
 
                     </tbody>
                 </table>

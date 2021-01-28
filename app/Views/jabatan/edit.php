@@ -6,7 +6,7 @@
 <div class="section-body">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4>Tambah Jabatan</h4>
+            <h4>Edit Jabatan</h4>
             <div class="card-header-action">
                 <a href=" <?= base_url('Jabatan/index'); ?>">
                     <button class=" btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</button>
@@ -18,15 +18,14 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3 col-sm-1">
-
                 </div>
                 <div class="col-md-6 col-sm-10">
-                    <form class="needs-validation" action="save" method="POST" novalidate="">
+                    <form class="needs-validation" novalidate="" action="/jabatan/update/<?= $jabatan['id']; ?>" method="POST">
 
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Nama Jabatan</label>
                             <div class="col-sm-9">
-                                <input type="text" name="nama_jabatan" class="form-control" required="">
+                                <input type="text" name="nama_jabatan" value="<?= $jabatan['nama_jabatan']; ?>" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Nama Jabatan Wajib Diisi?
                                 </div>
@@ -35,7 +34,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Kode Jabatan</label>
                             <div class="col-sm-9">
-                                <input type="text" name="kode_jabatan" class="form-control" required="">
+                                <input type="text" name="kode_jabatan" value="<?= $jabatan['kode_jabatan']; ?>" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Apa Kode Jabatannya?.
                                 </div>
@@ -44,35 +43,28 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Level</label>
                             <div class="col-sm-9">
-                                <select name="level" id="" class="form-control">
-                                    <option value="">Pilih Level</option>
-                                    <option value="1">Level 1</option>
-                                    <option value="2">Level 2</option>
-                                    <option value="3">Level 3</option>
-                                    <option value="4">Level 4</option>
+                                <select name="level" id="level" class="form-control">
+                                    <option value="1" <?php if ($jabatan['level'] == 1) : ?> selected <?php endif; ?>>Level 1</option>
+                                    <option value="2" <?php if ($jabatan['level'] == 2) : ?> selected <?php endif; ?>>Level 2</option>
+                                    <option value="3" <?php if ($jabatan['level'] == 3) : ?> selected <?php endif; ?>>Level 3</option>
+                                    <option value="4" <?php if ($jabatan['level'] == 4) : ?> selected <?php endif; ?>>Level 4</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Harap Memilih Level
-                                </div>
                             </div>
                         </div>
-                        <div class="form-group  row">
+                        <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Atasan</label>
                             <div class="col-sm-9">
-                                <select name="atasan" id="" class="form-control">
-                                    <option value="NULL">Pilih Atasan</option>
-                                    <?php foreach ($jabatan as $j) : ?>
-                                        <option value="<?= $j['nama_jabatan']; ?>"><?= $j['nama_jabatan']; ?></option>
-
+                                <select name="atasan" id="level" class="form-control">
+                                    <?php foreach ($atasan as $a) : ?>
+                                        <option value="<?= $a['nama_jabatan']; ?>" <?php if ($jabatan['atasan'] == $a['nama_jabatan']) : ?> selected <?php endif; ?>><?= $a['nama_jabatan']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
-
                             </div>
                         </div>
                         <div class="form-group mb-0 row">
                             <label class="col-sm-3 col-form-label">Uraian</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="uraian" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" value="<?= $jabatan['uraian']; ?>" name="uraian" id="" cols="30" rows="10"></textarea>
 
                             </div>
                         </div>
