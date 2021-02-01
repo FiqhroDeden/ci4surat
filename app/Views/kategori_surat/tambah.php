@@ -21,12 +21,12 @@
 
                 </div>
                 <div class="col-md-6 col-sm-10">
-                    <form class="needs-validation" novalidate="">
+                    <form class="needs-validation" action="save" method="POST" novalidate="">
 
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Kode Kategori</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" required="">
+                                <input type="text" name="kode_kategori" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Kode Kategori Wajib Diisi?
                                 </div>
@@ -35,7 +35,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Nama Kategori</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" required="">
+                                <input type="text" name="nama_kategori" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Apa Nama Kategori?.
                                 </div>
@@ -44,14 +44,14 @@
                         <div class="form-group mb-0 row">
                             <label class="col-sm-3 col-form-label">Uraian</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="uraian" id="" cols="30" rows="10"></textarea>
 
                             </div>
                         </div>
 
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Simpan</button>
-                            <button class="btn btn-danger">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="reset" class="btn btn-danger">Batal</button>
                         </div>
                     </form>
                 </div>

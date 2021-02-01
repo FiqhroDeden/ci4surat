@@ -4,13 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class jabatanModel extends Model
+class tujuansuratModel extends Model
 {
-    protected $table = 'jabatan';
+    protected $table = 'tujuan_surat';
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama_jabatan', 'kode_jabatan', 'level', 'atasan', 'uraian'];
+    protected $allowedFields = ['alamat_tujuan', 'uraian'];
 
-    public function getjabatan($id = false)
+    public function gettujuansurat($id = false)
     {
 
         if ($id == false) {
