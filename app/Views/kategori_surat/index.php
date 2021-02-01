@@ -4,6 +4,11 @@
     <h1>Kategori Surat</h1>
 </div>
 <div class="section-body">
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif; ?>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h4>Kelola Kategori Surat</h4>
@@ -29,29 +34,20 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>010</td>
-                            <td>Kantor Gubernur</td>
-                            <td>Lorem ipsum</td>
-                            <td>
-                                <button class="btn btn-primary"><span class="fa fa-edit"></span></button>
-                                <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                            </td>
+                        <?php $i = 1 ?>
+                        <?php foreach ($ksurat as $k) : ?>
+                            <tr>
+                                <td><?= $i++; ?></td>
+                                <td><?= $k['kode_kategori']; ?></td>
+                                <td><?= $k['nama_kategori']; ?></td>
+                                <td><?= $k['uraian']; ?></td>
+                                <td>
+                                    <a href="/kategori_surat/edit/<?= $k['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></button></a>
+                                    <a href="/kategori_surat/delete/<?= $k['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>021</td>
-                            <td>Dinas Perhubungan</td>
-                            <td></td>
-                            <td>
-                                <button class="btn btn-primary"><span class="fa fa-edit"></span></button>
-                                <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                            </td>
-
-                        </tr>
-
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
