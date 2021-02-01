@@ -21,12 +21,12 @@
 
                 </div>
                 <div class="col-md-6 col-sm-10">
-                    <form action="/pengirim_surat/save" method="post" class="needs-validation" novalidate="">
+                    <form action="/pengirim_surat/update/<?= $pengirim['id']; ?>" method="post" class="needs-validation" novalidate="">
 
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Nama Pengirim</label>
                             <div class="col-sm-9">
-                                <input name="nama_pengirim" type="text" class="form-control" required="">
+                                <input value="<?= $pengirim['nama_pengirim']; ?>" name="nama_pengirim" type="text" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Apa Nama Pengirim Surat?.
                                 </div>
@@ -35,7 +35,7 @@
                         <div class="form-group mb-0 row">
                             <label class="col-sm-3 col-form-label">Uraian</label>
                             <div class="col-sm-9">
-                                <textarea name="uraian" class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                <textarea name="uraian" class="form-control" name="" id="" cols="30" rows="10"><?= $pengirim['uraian']; ?></textarea>
 
                             </div>
                         </div>

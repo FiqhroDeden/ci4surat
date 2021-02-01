@@ -15,6 +15,11 @@
 
 
         </div>
+        <?php if (session()->getFlashdata('pesan')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= session()->getFlashdata('pesan'); ?>
+            </div>
+        <?php endif; ?>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover dt-bootstrap4" id="dataTable" width="100%" cellspacing="0">
@@ -28,26 +33,23 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Dinas Pendidikan</td>
-                            <td>Kantor, Jl. jalan</td>
-                            <td>
-                                <button class="btn btn-primary"><span class="fa fa-edit"></span></button>
-                                <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                            </td>
+                        <?php $no = 1; ?>
+                        <?php foreach ($pengirim_surat as $pengirim) : ?>
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= $pengirim["nama_pengirim"]; ?></td>
+                                <td><?= $pengirim["uraian"]; ?></td>
+                                <td>
+                                    <a href="/pengirim_surat/ubah/<?= $pengirim["id"]; ?>">
+                                        <button class="btn btn-primary"><span class="fa fa-edit"></span></button>
+                                    </a>
+                                    <form action="/pengirim_surat/delete/<?= $pengirim['id']; ?>" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus <?= $pengirim['nama_pengirim']; ?>?');"><span class="fa fa-trash"></span></button>
+                                    </form>
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Kantor Gubernur</td>
-                            <td></td>
-                            <td>
-                                <button class="btn btn-primary"><span class="fa fa-edit"></span></button>
-                                <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                            </td>
-
-                        </tr>
+                            </tr>
+                        <?php endforeach; ?>
 
                     </tbody>
                 </table>

@@ -35,6 +35,8 @@ $routes->get('/', 'Dashboard::index');
 $routes->delete('/golongan/edit/(:num)', 'Golongan::edit/$1');
 $routes->delete('/golongan/delete/(:num)', 'Golongan::delete/$1');
 
+$routes->delete('/pengirim_surat/ubah/(:num)', 'Pengirim_surat::ubah/$1');
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
