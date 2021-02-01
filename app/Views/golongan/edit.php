@@ -25,7 +25,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Golongan</label>
                             <div class="col-sm-9">
-                                <input type="text" name="golongan" value="<?= $golongan['golongan']; ?>" class="form-control" required="">
+                                <input type="text" name="golongan" value="<?= $golongan['kode_golongan']; ?>" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Golongan Wajib Diisi?
                                 </div>

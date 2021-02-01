@@ -36,7 +36,7 @@
                         <?php foreach ($golongan as $g) : ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $g['golongan']; ?></td>
+                                <td><?= $g['kode_golongan']; ?></td>
                                 <td><?= $g['nama_golongan']; ?></td>
                                 <td><?= $g['uraian']; ?></td>
                                 <td>

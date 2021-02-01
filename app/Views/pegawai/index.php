@@ -4,6 +4,11 @@
     <h1>Pegawai</h1>
 </div>
 <div class="section-body">
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif; ?>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h4>Kelola Pegawai</h4>
@@ -31,32 +36,25 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>1920020123121</td>
-                            <td>Fiqhro Dedhen</td>
-                            <td>Pembina Utama Muda (IV/c)</td>
-                            <td>Admin</td>
-                            <td>082248212180 <br> dedhensupatmo@gmail.com</td>
-                            <td>
-                                <button class="btn btn-primary"><span class="fa fa-edit"></span></button>
-                                <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                            </td>
+                        <?php $i = 1; ?>
+                        <?php foreach ($pegawai as $p) : ?>
+                            <tr>
 
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>0281302311231</td>
-                            <td>Marthin Salakory</td>
-                            <td>Sekertaris</td>
-                            <td>Admin</td>
-                            <td>082231230221 <br> Marthinsalakory@gmail.com</td>
-                            <td>
-                                <button class="btn btn-primary"><span class="fa fa-edit"></span></button>
-                                <button class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                            </td>
+                                <td><?= $i++; ?></td>
+                                <td><?= $p['nip']; ?></td>
+                                <td><?= $p['nama_lengkap']; ?></td>
+                                <td><?= $p['nama_golongan']; ?> (<?= $p['kode_golongan']; ?>)</td>
+                                <td><?= $p['nama_jabatan']; ?></td>
+                                <td><?= $p['no_telp']; ?> <br> <?= $p['email']; ?></td>
+                                <td>
+                                    <a href="/pegawai/edit/<?= $p['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></a>
+                                    <a href="/pegawai/delete/<?= $p['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>
+                                </td>
 
-                        </tr>
+
+                            </tr>
+                        <?php endforeach; ?>
+
 
 
                     </tbody>

@@ -6,7 +6,7 @@
 <div class="section-body">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4>Tambah Pegawai</h4>
+            <h4>Edit Pegawai</h4>
             <div class="card-header-action">
                 <a href=" <?= base_url('Pegawai/index'); ?>">
                     <button class=" btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</button>
@@ -21,12 +21,12 @@
 
                 </div>
                 <div class="col-md-6 col-sm-10">
-                    <form class="needs-validation" action="save" method="POST" novalidate="">
-
+                    <form class="needs-validation" action="/pegawai/update/<?= $pegawai['id']; ?>" method="POST" novalidate="">
+                        <input type="hidden" name="oldpass" value="<?= $pegawai['password_hash']; ?>">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">NIP</label>
                             <div class="col-sm-9">
-                                <input type="text" name="nip" class="form-control" required="">
+                                <input type="text" value="<?= $pegawai['nip']; ?>" name="nip" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     NIP Wajib Diisi?
                                 </div>
@@ -35,7 +35,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                             <div class="col-sm-9">
-                                <input type="text" name="nama_lengkap" class="form-control" required="">
+                                <input type="text" value="<?= $pegawai['nama_lengkap']; ?>" name="nama_lengkap" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Nama Lengkap wajib diisi?.
                                 </div>
@@ -44,10 +44,9 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Golongan</label>
                             <div class="col-sm-9">
-                                <select name="golongan" id="" class="form-control">
-                                    <option value="">Pilih</option>
+                                <select name="golongan" id="golongan" class="form-control">
                                     <?php foreach ($golongan as $g) : ?>
-                                        <option value="<?= $g['id']; ?>"><?= $g['nama_golongan']; ?></option>
+                                        <option value="<?= $g['id']; ?>" <?php if ($pegawai['golongan'] == $g['id']) : ?> selected <?php endif; ?>><?= $g['nama_golongan']; ?> (<?= $g['kode_golongan']; ?>)</option>
                                     <?php endforeach; ?>
                                 </select>
                                 <div class="invalid-feedback">
@@ -58,13 +57,11 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Jabatan</label>
                             <div class="col-sm-9">
-                                <select name="jabatan" id="" class="form-control">
-                                    <option value="">Pilih</option>
+                                <select name="jabatan" id="level" class="form-control">
                                     <?php foreach ($jabatan as $j) : ?>
-                                        <option value="<?= $j['id']; ?>"><?= $j['nama_jabatan']; ?></option>
+                                        <option value="<?= $j['id']; ?>" <?php if ($pegawai['jabatan'] == $j['id']) : ?> selected <?php endif; ?>><?= $j['nama_jabatan']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                </option>
                                 <div class="invalid-feedback">
                                     Jabatan wajib dipilih?.
                                 </div>
@@ -73,7 +70,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">No. Telepon</label>
                             <div class="col-sm-9">
-                                <input type="text" name="no_telp" class="form-control" required="">
+                                <input type="text" value="<?= $pegawai['no_telp']; ?>" name="no_telp" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Nomor Telepon wajib diisi?.
                                 </div>
@@ -82,7 +79,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
-                                <input type="text" name="email" class="form-control" required="">
+                                <input type="text" value="<?= $pegawai['email']; ?>" name="email" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Email wajib diisi?.
                                 </div>
@@ -91,7 +88,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm-9">
-                                <input type="text" name="username" class="form-control" required="">
+                                <input type="text" value="<?= $pegawai['username']; ?>" name="username" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Username wajib diisi?.
                                 </div>
@@ -100,7 +97,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Password</label>
                             <div class="col-sm-9">
-                                <input type="password" name="password_hash" class="form-control" required="">
+                                <input type="password" value="<?= $pegawai['password_hash']; ?>" name="password_hash" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Password wajib diisi?.
                                 </div>

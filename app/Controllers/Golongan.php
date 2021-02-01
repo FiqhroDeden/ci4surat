@@ -30,7 +30,7 @@ class Golongan extends BaseController
     public function save()
     {
         $this->golonganModel->save([
-            'golongan' => $this->request->getVar('golongan'),
+            'kode_golongan' => $this->request->getVar('golongan'),
             'nama_golongan' => $this->request->getVar('nama_golongan'),
             'uraian' => $this->request->getVar('uraian'),
         ]);
@@ -50,7 +50,7 @@ class Golongan extends BaseController
     public function update($id)
     {
         $golongan = [
-            'golongan' => $this->request->getVar('golongan'),
+            'kode_golongan' => $this->request->getVar('golongan'),
             'nama_golongan' => $this->request->getVar('nama_golongan'),
             'uraian' => $this->request->getVar('uraian'),
         ];
