@@ -14,7 +14,7 @@ class Kategori_surat extends BaseController
     {
         $data =
             [
-                'title' => 'Golongan',
+                'title' => 'Kategori Surat',
                 'ksurat' => $this->ksuratModel->getkategorisurat()
             ];
         return view('kategori_surat/index', $data);
@@ -41,7 +41,7 @@ class Kategori_surat extends BaseController
     {
         $data =
             [
-                'title' => 'Tambah Golongan',
+                'title' => 'Edit Kategori Surat',
                 'ksurat' => $this->ksuratModel->getkategorisurat($id)
             ];
         return view('kategori_surat/edit', $data);
