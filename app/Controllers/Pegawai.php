@@ -6,6 +6,7 @@ use App\Models\golonganModel;
 use App\Models\jabatanModel;
 use App\Models\pegawaiModel;
 use App\Models\rolesModel;
+use App\Models\levelModel;
 
 class Pegawai extends BaseController
 {
@@ -15,14 +16,16 @@ class Pegawai extends BaseController
         $this->jabatanModel = new jabatanModel();
         $this->pegawaiModel = new pegawaiModel();
         $this->rolesModel = new rolesModel();
+        $this->levelModel = new levelModel();
     }
     public function index()
     {
         $data =
             [
                 'title' => 'Pegawai',
-                'pegawai' => $this->pegawaiModel->getPegawai()
-
+                'pegawai' => $this->pegawaiModel->getPegawai(),
+                'roles' => $this->rolesModel->getroles(),
+                'level' => $this->levelModel->getlevel(),
             ];
         return view('pegawai/index', $data);
     }
@@ -33,8 +36,7 @@ class Pegawai extends BaseController
                 'title' => 'Tambah Pegawai',
                 'golongan' => $this->golonganModel->findAll(),
                 'jabatan' => $this->jabatanModel->findAll(),
-
-
+                'roles' => $this->rolesModel->findAll(),
             ];
         return view('pegawai/tambah', $data);
     }
@@ -58,6 +60,19 @@ class Pegawai extends BaseController
             'active' => 1,
             'password_hash' => $pass_hash,
 
+        ]);
+        // set role
+        $conn = \Config\Database::connect();
+
+        $kode = $conn->query("SELECT * FROM users ORDER BY id DESC LIMIT 1");
+        $set = $kode->getResultArray();
+        foreach ($set as $s) {
+            $user_id = $s['id'];
+        }
+        //save
+        $this->levelModel->save([
+            'group_id' => $this->request->getVar('group_id'),
+            'user_id' => $user_id,
         ]);
         session()->setFlashdata('pesan', 'Data Pegawai berhasil ditambahkan.');
         return redirect()->to('/pegawai');

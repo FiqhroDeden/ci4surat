@@ -89,6 +89,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Role</label>
+                            <div class="col-sm-9">
+                                <select name="group_id" id="" class="form-control">
+                                    <option value="">Pilih</option>
+                                    <?php foreach ($roles as $r) : ?>
+                                        <option value="<?= $r['id']; ?>"><?= $r['name']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                </option>
+                                <div class="invalid-feedback">
+                                    Jabatan wajib dipilih?.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm-9">
                                 <input type="text" name="username" class="form-control" required="">
