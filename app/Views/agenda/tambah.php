@@ -8,7 +8,7 @@
         <div class="card-header py-3">
             <h4>Tambah Agenda</h4>
             <div class="card-header-action">
-                <a href=" <?= base_url('surat_masuk/index'); ?>">
+                <a href=" <?= base_url('agenda/index'); ?>">
                     <button class=" btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</button>
                 </a>
             </div>
@@ -19,36 +19,36 @@
 
                 </div>
                 <div class="col-md-6 col-sm-10">
-                    <form class="needs-validation" novalidate="">
+                    <form class="needs-validation" action="save" method="POST" novalidate="">
 
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Tanggal Mulai Acara</label>
                             <div class="col-sm-9">
-                                <input type="date" class="form-control" required="">
+                                <input type="date" name="tgl_mulai" class="form-control" required="">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Jam Mulai Acara</label>
                             <div class="col-sm-9">
-                                <input type="time" class="form-control" required="">
+                                <input type="time" name="jam_mulai" class="form-control" required="">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Tanggal Selesai Acara</label>
                             <div class="col-sm-9">
-                                <input type="date" class="form-control" required="">
+                                <input type="date" name="tgl_selesai" class="form-control" required="">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Jam Selesai Acara</label>
                             <div class="col-sm-9">
-                                <input type="time" class="form-control" required="">
+                                <input type="time" name="jam_selesai" class="form-control" required="">
                             </div>
                         </div>
                         <div class="form-group  row">
                             <label class="col-sm-3 col-form-label">Perihal Acara</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="perihal" id="" cols="30" rows="10"></textarea>
 
                             </div>
                         </div>
