@@ -8,7 +8,7 @@
         <div class="card-header py-3">
             <h4>Edit Tujuan Surat</h4>
             <div class="card-header-action">
-                <a href=" <?= base_url('Kategori_surat/index'); ?>">
+                <a href=" <?= base_url('Tujuan_surat/index'); ?>">
                     <button class=" btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</button>
                 </a>
             </div>

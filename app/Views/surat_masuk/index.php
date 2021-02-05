@@ -4,6 +4,11 @@
     <h1>Surat Masuk</h1>
 </div>
 <div class="section-body">
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif; ?>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h4>Kelola Surat Masuk</h4>
@@ -14,8 +19,6 @@
                     </a>
                 </div>
             <?php endif; ?>
-
-
 
         </div>
         <div class="card-body">
@@ -37,57 +40,44 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>07/KR.TA/11/2020
-                                <hr>
-                                03 Oktober 2020
-                            </td>
-                            <td>Kantor Gubernur</td>
-                            <td>Undangan Rapat</td>
-                            <td>Undangan
-                                <hr><b>File</b> : <a href="">Download</a>
-                            </td>
-                            <td>Harap Kehadirannya</td>
-                            <td align="center">
-                                <?php if (in_groups('sekertaris')) : ?>
-                                    <button class="btn btn-primary btn-sm"><span class="fa fa-edit"></span></button>
-                                    <button class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button>
-                                    <br>
-                                <?php endif; ?>
+                        <?php $i = 1 ?>
+                        <?php foreach ($suratmasuk as $sm) : ?>
+                            <tr>
+                                <td><?= $i++; ?></td>
+                                <td><?= $sm['nomor_surat']; ?>
+                                    <hr>
+                                    <?= $sm['tgl_surat']; ?>
+                                </td>
+                                <td><?= $sm['pengirim_surat']; ?></td>
+                                <td><?= $sm['perihal']; ?></td>
+                                <td><?= $sm['isi_ringkas']; ?>
+                                    <hr><b>File</b> :
+                                    <?php if ($sm['file'] == 'tidakada') { ?>
+                                        <p>Tidak Ada File</p>
+                                    <?php } else { ?>
+                                        <a href="/file/suratmasuk/<?= $sm['file']; ?>" target="_blank">Download</a>
+                                    <?php } ?>
 
-                                <button class="btn btn-info btn-sm mt-2"><span class="fa fa-bookmark"></span> lihat disposisi</button>
-                            </td>
+                                </td>
+                                <td><?= $sm['keterangan']; ?></td>
+                                <td align="center">
+                                    <?php if (in_groups('sekertaris')) : ?>
+                                        <a href="/surat_masuk/edit/<?= $sm['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></a>
+                                        <a href="/surat_masuk/delete/<?= $sm['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>
 
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>07/KR.TA/11/2020
-                                <hr>
-                                03 Oktober 2020
-                            </td>
-                            <td>Kantor Gubernur</td>
-                            <td>Undangan Rapat</td>
-                            <td>Undangan
-                                <hr><b>File</b> : <a href="">Download</a>
-                            </td>
-                            <td>Harap Kehadirannya</td>
-                            <td align="center">
-                                <?php if (in_groups('sekertaris')) : ?>
-                                    <button class="btn btn-primary btn-sm"><span class="fa fa-edit"></span></button>
-                                    <button class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button>
-                                    <br>
-                                    <button class="btn btn-outline-warning btn-sm mt-2"> belum ada disposisi</button>
-                                <?php endif; ?>
+                                        <br>
+                                    <?php endif; ?>
+                                    <?php if ($sm['status_disposisi'] == 0) { ?>
+                                        <button class="btn btn-default btn-sm mt-2"><span class="fa fa-warning"></span> Belum disposisi</button>
+                                    <?php } else { ?>
+                                        <button class="btn btn-info btn-sm mt-2"><span class="fa fa-bookmark"></span> Lihat disposisi</button>
+                                    <?php } ?>
 
-                                <?php if (in_groups('kepala')) : ?>
-                                    <a href="<?= base_url('disposisi/index'); ?>"><button class="btn btn-primary btn-sm mt-2"><span class="fa fa-plus"></span> input disposisi</button></a>
 
-                                <?php endif; ?>
-                            </td>
+                                </td>
 
-                        </tr>
-
+                            </tr>
+                        <?php endforeach; ?>
 
                     </tbody>
                 </table>
