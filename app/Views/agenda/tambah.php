@@ -48,21 +48,29 @@
                         <div class="form-group  row">
                             <label class="col-sm-3 col-form-label">Perihal Acara</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="perihal" id="" cols="30" rows="10"></textarea>
+                                <input type="text" name="perihal" class="form-control" required="">
 
                             </div>
                         </div>
-                        <div class="form-group mb-0 row">
+                        <div class="form-group  row">
                             <label class="col-sm-3 col-form-label">Tempat Acara</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                <input type="text" name="tempat" class="form-control" required="">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group  row">
+                            <label class="col-sm-3 col-form-label">Keterangan</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="keterangan" class="form-control" required="">
 
                             </div>
                         </div>
 
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Simpan</button>
-                            <button class="btn btn-danger">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="reset" class="btn btn-danger">Batal</button>
                         </div>
                     </form>
                 </div>

@@ -4,11 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class golonganModel extends Model
+class agendaModel extends Model
 {
     protected $table = 'agenda';
     protected $useTimestamps = true;
-    protected $allowedFields = ['tgl_mulai', 'jam_mulai', 'jam_mulai', 'tgl_selesai', 'jam_selesai', 'perihal', 'tempat'];
+    protected $allowedFields = ['tgl_mulai', 'jam_mulai', 'jam_mulai', 'tgl_selesai', 'jam_selesai', 'perihal', 'tempat', 'keterangan'];
 
     public function getAgenda($id = false)
     {
