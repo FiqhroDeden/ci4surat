@@ -31,6 +31,7 @@
                             <th>Golongan</th>
                             <th>Jabatan</th>
                             <th>Telepon <br> Email</th>
+                            <th>Role</th>
                             <th><span class="fa fa-cog"></span></th>
                         </tr>
                     </thead>
@@ -46,6 +47,7 @@
                                 <td><?= $p['nama_golongan']; ?> (<?= $p['kode_golongan']; ?>)</td>
                                 <td><?= $p['nama_jabatan']; ?></td>
                                 <td><?= $p['no_telp']; ?> <br> <?= $p['email']; ?></td>
+                                <td><?= $p['name']; ?></td>
                                 <td>
                                     <a href="/pegawai/edit/<?= $p['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></a>
                                     <a href="/pegawai/delete/<?= $p['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>

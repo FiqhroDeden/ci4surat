@@ -23,6 +23,8 @@
                 <div class="col-md-6 col-sm-10">
                     <form class="needs-validation" action="/pegawai/update/<?= $pegawai['id']; ?>" method="POST" novalidate="">
                         <input type="hidden" name="oldpass" value="<?= $pegawai['password_hash']; ?>">
+                        <input type="hidden" name="id" value="<?= $pegawai['id']; ?>">
+                        <input type="hidden" name="oldlevel" value="<?= $pegawai['level']; ?>">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">NIP</label>
                             <div class="col-sm-9">
@@ -82,6 +84,20 @@
                                 <input type="text" value="<?= $pegawai['email']; ?>" name="email" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Email wajib diisi?.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Role</label>
+                            <div class="col-sm-9">
+                                <select name="group_id" id="" class="form-control">
+                                    <?php foreach ($roles as $r) : ?>
+                                        <option value="<?= $r['id']; ?>" <?php if ($pegawai['level'] == $r['id']) : ?> selected <?php endif; ?>><?= $r['name']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                </option>
+                                <div class="invalid-feedback">
+                                    Jabatan wajib dipilih?.
                                 </div>
                             </div>
                         </div>
