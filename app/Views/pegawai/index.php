@@ -47,7 +47,11 @@
                                 <td><?= $p['nama_golongan']; ?> (<?= $p['kode_golongan']; ?>)</td>
                                 <td><?= $p['nama_jabatan']; ?></td>
                                 <td><?= $p['no_telp']; ?> <br> <?= $p['email']; ?></td>
-                                <td><?= $p['name']; ?></td>
+                                <td><span class="badge badge-pill badge-<?= $p['name'] == 'admin' ? 'dark'
+                                                                            : ($p['name'] == 'ketua' ? 'primary'
+                                                                                : ($p['name'] == 'sekertaris' ? 'info'
+                                                                                    : ($p['name'] == 'pegawai' ? 'success'
+                                                                                        : 'warning'))); ?>"><?= $p['name']; ?></span></td>
                                 <td>
                                     <a href="/pegawai/edit/<?= $p['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></a>
                                     <a href="/pegawai/delete/<?= $p['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>
