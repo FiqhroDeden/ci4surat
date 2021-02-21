@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/components.css">
     <link href="<?= base_url(); ?>/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <style type="text/css">
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,10 +39,12 @@
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; <?= date('Y'); ?> Universitas Pattimura <div class="bullet"></div>
+                    Copyright &copy; <?= date('Y'); ?>
+                    <a href="https://web.facebook.com/marthin.salakory.9"> M4S </a>
+                    <div class="bullet"></div>
                 </div>
                 <div class="footer-right">
-                    2.3.0
+                    1.0.0
                 </div>
             </footer>
         </div>

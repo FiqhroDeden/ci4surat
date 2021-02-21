@@ -26,9 +26,8 @@
                     <thead style="color: blue">
                         <tr>
                             <th>#</th>
-                            <th>NIP</th>
                             <th>Nama</th>
-                            <th>Golongan</th>
+                            <th>Status</th>
                             <th>Jabatan</th>
                             <th>Telepon <br> Email</th>
                             <th>Role</th>
@@ -42,7 +41,6 @@
                             <tr>
 
                                 <td><?= $i++; ?></td>
-                                <td><?= $p['nip']; ?></td>
                                 <td><?= $p['nama_lengkap']; ?></td>
                                 <td><?= $p['nama_golongan']; ?> (<?= $p['kode_golongan']; ?>)</td>
                                 <td><?= $p['nama_jabatan']; ?></td>

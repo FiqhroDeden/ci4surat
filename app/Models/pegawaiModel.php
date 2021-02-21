@@ -7,7 +7,6 @@ use CodeIgniter\Model;
 class pegawaiModel extends Model
 {
     protected $table = 'users';
-    protected $useTimestamps = true;
     protected $allowedFields = ['email', 'username', 'nama_lengkap', 'nip', 'jabatan', 'golongan', 'no_telp', 'level', 'password_hash', 'active'];
 
     public function getPegawai($id = false)

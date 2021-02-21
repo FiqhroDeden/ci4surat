@@ -26,7 +26,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">NIP</label>
                             <div class="col-sm-9">
-                                <input type="text" name="nip" class="form-control" required="">
+                                <input type="text" name="nip" class="form-control" required>
                                 <div class="invalid-feedback">
                                     NIP Wajib Diisi?
                                 </div>
@@ -35,7 +35,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                             <div class="col-sm-9">
-                                <input type="text" name="nama_lengkap" class="form-control" required="">
+                                <input type="text" name="nama_lengkap" class="form-control" required>
                                 <div class="invalid-feedback">
                                     Nama Lengkap wajib diisi?.
                                 </div>
@@ -58,7 +58,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Jabatan</label>
                             <div class="col-sm-9">
-                                <select name="jabatan" id="" class="form-control">
+                                <select name="jabatan" id="" class="form-control" required>
                                     <option value="">Pilih</option>
                                     <?php foreach ($jabatan as $j) : ?>
                                         <option value="<?= $j['id']; ?>"><?= $j['nama_jabatan']; ?></option>
@@ -73,7 +73,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">No. Telepon</label>
                             <div class="col-sm-9">
-                                <input type="text" name="no_telp" class="form-control" required="">
+                                <input type="text" name="no_telp" class="form-control" required>
                                 <div class="invalid-feedback">
                                     Nomor Telepon wajib diisi?.
                                 </div>
@@ -82,7 +82,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
-                                <input type="text" name="email" class="form-control" required="">
+                                <input type="text" name="email" class="form-control" required>
                                 <div class="invalid-feedback">
                                     Email wajib diisi?.
                                 </div>
@@ -106,7 +106,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm-9">
-                                <input type="text" name="username" class="form-control" required="">
+                                <input type="text" name="username" class="form-control" required>
                                 <div class="invalid-feedback">
                                     Username wajib diisi?.
                                 </div>
@@ -115,16 +115,16 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Password</label>
                             <div class="col-sm-9">
-                                <input type="password" name="password_hash" class="form-control" required="">
+                                <input type="password" name="password_hash" class="form-control" required>
                                 <div class="invalid-feedback">
                                     Password wajib diisi?.
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer text-right">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                            <button type="reset" class="btn btn-danger">Batal</button>
-                        </div>
+                        <!-- <div class="card-footer text-right"> -->
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="reset" class="btn btn-danger">Batal</button>
+                        <!-- </div> -->
                     </form>
                 </div>
                 <div class="col-md-3 col-sm-1">
