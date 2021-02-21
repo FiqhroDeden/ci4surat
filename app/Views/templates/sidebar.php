@@ -28,15 +28,7 @@
 
             </ul>
         <?php endif; ?>
-        <?php if (in_groups('operator') || in_groups('admin')) : ?>
-            <ul class="sidebar-menu">
-                <li class="menu-header">Menu Operator</li>
 
-                <li> <a href="<?= base_url('surat_masuk/index'); ?>" class="nav-link"><i class="fas fa-envelope"></i><span>Surat Masuk</span></a></li>
-                <li> <a href="<?= base_url('surat_masuk/index'); ?>" class="nav-link"><i class="fab fa-facebook-messenger"></i><span>Message</span></a></li>
-            </ul>
-
-        <?php endif; ?>
         <?php if (in_groups('user') || in_groups('admin')) : ?>
             <ul class="sidebar-menu">
                 <li class="menu-header">Menu Utama</li>
