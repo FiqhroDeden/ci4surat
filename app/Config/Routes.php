@@ -38,6 +38,7 @@ $routes->delete('/golongan/delete/(:num)', 'Golongan::delete/$1');
 $routes->delete('/pengirim_surat/ubah/(:num)', 'Pengirim_surat::ubah/$1');
 $routes->delete('/myarchive/document', 'myarchive::document');
 $routes->delete('/myarchive/images', 'myarchive::images');
+$routes->get('/dashboard/(:segment)', 'Dashboard::index/$1');
 
 /**
  * --------------------------------------------------------------------

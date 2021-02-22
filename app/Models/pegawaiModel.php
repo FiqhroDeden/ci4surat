@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class pegawaiModel extends Model
 {
+    protected $useTimestamps = true;
     protected $table = 'users';
     protected $allowedFields = ['email', 'username', 'nama_lengkap', 'nip', 'jabatan', 'golongan', 'no_telp', 'level', 'password_hash', 'active'];
 

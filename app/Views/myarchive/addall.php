@@ -21,8 +21,22 @@
 
                 </div>
                 <div class="col-md-6 col-sm-10">
-                    <form class="needs-validation" action="savedocument" method="POST" novalidate="" enctype="multipart/form-data">
+                    <form class="needs-validation" action="saveall" method="POST" novalidate="" enctype="multipart/form-data">
 
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">User Pengirim</label>
+                            <div class="col-sm-9">
+                                <select name="user" id="" class="form-control" required>
+                                    <option value=""></option>
+                                    <?php foreach ($users as $u) : ?>
+                                        <option value="<?= $u['id']; ?>"><?= $u['nama_lengkap']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Pilih user terlebih dahulu
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">File Name</label>
                             <div class="col-sm-9">

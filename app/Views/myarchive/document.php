@@ -22,11 +22,12 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover dt-bootstrap4" id="dataTable" width="100%" cellspacing="0">
+                <table style="text-align: center;" class="table table-bordered table-hover dt-bootstrap4" id="dataTable" width="100%" cellspacing="0">
                     <thead style="color: blue">
                         <tr>
                             <th>#</th>
                             <th>File Name</th>
+                            <th>Jenis File</th>
                             <th>Date Time</th>
                             <th>Keterangan</th>
                             <th><span class="fa fa-cog"></span></th>
@@ -35,23 +36,29 @@
 
                     <tbody>
                         <?php $i = 1 ?>
-                        <?php foreach ($document as $d) : ?>
-                            <tr>
-                                <td><?= $i++; ?></td>
-                                <td>
-                                    <a href="/archive/<?= $d['filename']; ?>" onclick="return confirm('Download File <?= $d['name']; ?>?');" download>
-                                        <?= $d['name']; ?>
-                                    </a>
-                                </td>
-                                <td><?= $d['date']; ?></td>
-                                <td><?= $d['detail']; ?></td>
-                                <td>
-                                    <!-- <a href="/jabatan/edit/<?= $d['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></button></a> -->
-                                    <a href="/myarchive/deletedocument/<?= $d['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>
-                                </td>
+                        <?php foreach ($document as $d) :
+                            if (user()->id == $d['user_id']) : ?>
+                                <tr>
+                                    <td><?= $i++; ?></td>
+                                    <td>
+                                        <a href="/archive/<?= $d['filename']; ?>" onclick="return confirm('Download File <?= $d['name']; ?>?');" download>
+                                            <?= $d['name']; ?>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <?php $jenis = explode('.', $d["filename"]); ?>
+                                        <?= $jenis[1]; ?>
+                                    </td>
+                                    <td><?= $d['date']; ?></td>
+                                    <td><?= $d['detail']; ?></td>
+                                    <td>
+                                        <!-- <a href="/jabatan/edit/<?= $d['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></button></a> -->
+                                        <a href="/myarchive/deletedocument/<?= $d['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>
+                                    </td>
 
-                            </tr>
-                        <?php endforeach; ?>
+                                </tr>
+                        <?php endif;
+                        endforeach; ?>
 
 
                     </tbody>
