@@ -1,12 +1,12 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
 <div class="section-header">
-    <h1>Pegawai</h1>
+    <h1>Manage Users</h1>
 </div>
 <div class="section-body">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4>Edit Pegawai</h4>
+            <h4>Update User</h4>
             <div class="card-header-action">
                 <a href=" <?= base_url('Pegawai/index'); ?>">
                     <button class=" btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</button>
@@ -40,32 +40,6 @@
                                 <input type="text" value="<?= $pegawai['nama_lengkap']; ?>" name="nama_lengkap" class="form-control" required="">
                                 <div class="invalid-feedback">
                                     Nama Lengkap wajib diisi?.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Golongan</label>
-                            <div class="col-sm-9">
-                                <select name="golongan" id="golongan" class="form-control">
-                                    <?php foreach ($golongan as $g) : ?>
-                                        <option value="<?= $g['id']; ?>" <?php if ($pegawai['golongan'] == $g['id']) : ?> selected <?php endif; ?>><?= $g['nama_golongan']; ?> (<?= $g['kode_golongan']; ?>)</option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Golongan wajib dipilih?.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Jabatan</label>
-                            <div class="col-sm-9">
-                                <select name="jabatan" id="level" class="form-control">
-                                    <?php foreach ($jabatan as $j) : ?>
-                                        <option value="<?= $j['id']; ?>" <?php if ($pegawai['jabatan'] == $j['id']) : ?> selected <?php endif; ?>><?= $j['nama_jabatan']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Jabatan wajib dipilih?.
                                 </div>
                             </div>
                         </div>

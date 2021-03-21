@@ -14,7 +14,7 @@
             <p></p>
         </div>
         <div class="col-md-1">
-            <img src="/img/atin.JPG" width="50" height="50" style="border-radius: 50%;" />
+            <img src="/img/<?= user()->user_image; ?>" width="50" height="50" style="border-radius: 50%;" />
         </div>
         <div class="col-md-10 card-body">
             <?php $nama = explode(' ', user()->nama_lengkap); ?>

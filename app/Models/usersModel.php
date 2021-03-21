@@ -15,7 +15,11 @@ class usersModel extends Model
     {
 
         if ($id == false) {
+            //     $query =  $this->select('message.id as messageid, pengirim, penerima, message.created_at as date, nama_lengkap')
+            //     ->join('users u', 'u.id = message.penerima')
+            //     ->get();
 
+            // return $query->getResultArray();
             return $this->findAll();
         }
 

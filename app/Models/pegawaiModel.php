@@ -14,9 +14,7 @@ class pegawaiModel extends Model
     {
 
         if ($id == false) {
-            $query =  $this->select('users.id as id, nip, nama_lengkap, no_telp, email, nama_golongan, kode_golongan, nama_jabatan, name')
-                ->join('golongan g', 'g.id = users.golongan')
-                ->join('jabatan j', 'j.id = users.jabatan')
+            $query =  $this->select('users.id as id, nip, nama_lengkap, no_telp, email, name, username')
                 ->join('auth_groups ag', 'ag.id = users.level')
                 ->get();
 

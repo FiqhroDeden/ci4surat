@@ -2,21 +2,17 @@
 
 namespace App\Controllers;
 
-use App\Models\golonganModel;
-use App\Models\jabatanModel;
-use App\Models\pegawaiModel;
 use App\Models\rolesModel;
+use App\Models\pegawaiModel;
 use App\Models\levelModel;
 
 class Pegawai extends BaseController
 {
     public function __construct()
     {
-        $this->golonganModel = new golonganModel();
-        $this->jabatanModel = new jabatanModel();
         $this->pegawaiModel = new pegawaiModel();
-        $this->rolesModel = new rolesModel();
         $this->levelModel = new levelModel();
+        $this->rolesModel = new rolesModel();
     }
     public function index()
     {
@@ -25,7 +21,6 @@ class Pegawai extends BaseController
                 [
                     'title' => 'Pegawai',
                     'pegawai' => $this->pegawaiModel->getPegawai(),
-                    'roles' => $this->rolesModel->getroles(),
                     'level' => $this->levelModel->getlevel(),
                 ];
             return view('pegawai/index', $data);
@@ -37,8 +32,6 @@ class Pegawai extends BaseController
             $data =
                 [
                     'title' => 'Tambah Pegawai',
-                    'golongan' => $this->golonganModel->findAll(),
-                    'jabatan' => $this->jabatanModel->findAll(),
                     'roles' => $this->rolesModel->findAll(),
                 ];
             return view('pegawai/tambah', $data);
@@ -95,8 +88,6 @@ class Pegawai extends BaseController
             $data =
                 [
                     'title' => 'Edit Pegawai',
-                    'golongan' => $this->golonganModel->findAll(),
-                    'jabatan' => $this->jabatanModel->findAll(),
                     'pegawai' => $this->pegawaiModel->getPegawai($id),
                     'roles' => $this->rolesModel->findAll(),
                 ];

@@ -22,7 +22,7 @@ class Dashboard extends BaseController
                     'like' => $this->likeberandaModel->getlikeberanda(),
                     'title' => 'Dashboard Admin'
                 ];
-            return view('dashboard/admin', $data);
+            return view('dashboard/home', $data);
         }
         if (in_groups('user')) {
             $data =
@@ -31,7 +31,7 @@ class Dashboard extends BaseController
                     'like' => $this->likeberandaModel->getlikeberanda(),
                     'title' => 'Dashboard Admin'
                 ];
-            return view('dashboard/admin', $data);
+            return view('dashboard/home', $data);
         }
     }
     public function save()
