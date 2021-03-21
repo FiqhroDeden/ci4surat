@@ -39,7 +39,8 @@
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; <?= date('Y'); ?>
+                    Copyright &copy; <?php $timezone = time() + (60 * 60 * 9);
+                                        echo gmdate('Y', $timezone); ?>
                     <a href="https://web.facebook.com/marthin.salakory.9"> M4S </a>
                     <div class="bullet"></div>
                 </div>

@@ -2,14 +2,20 @@
 
 namespace App\Controllers;
 
+use App\Models\rolesModel;
+use App\Models\groups_usersModel;
 use App\Models\berandaModel;
+use App\Models\archiveModel;
 use App\Models\likeberandaModel;
 
 class Dashboard extends BaseController
 {
     public function __construct()
     {
+        $this->rolesModel = new rolesModel();
+        $this->groups_usersModel = new groups_usersModel();
         $this->berandaModel = new berandaModel();
+        $this->archiveModel = new archiveModel();
         $this->likeberandaModel = new likeberandaModel();
     }
 
@@ -20,6 +26,8 @@ class Dashboard extends BaseController
                 [
                     'beranda' => $this->berandaModel->getberanda(),
                     'like' => $this->likeberandaModel->getlikeberanda(),
+                    'groups_users' => $this->groups_usersModel->getgroups(),
+                    'archive' => $this->archiveModel->getarchive(),
                     'title' => 'Dashboard Admin'
                 ];
             return view('dashboard/home', $data);
@@ -29,6 +37,8 @@ class Dashboard extends BaseController
                 [
                     'beranda' => $this->berandaModel->getberanda(),
                     'like' => $this->likeberandaModel->getlikeberanda(),
+                    'groups_users' => $this->groups_usersModel->getgroups(),
+                    'archive' => $this->archiveModel->getarchive(),
                     'title' => 'Dashboard Admin'
                 ];
             return view('dashboard/home', $data);

@@ -1,12 +1,13 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <h1>M4S</h1>
-            <!-- <img src="/img/logo.JPG" width="50" height="50" style="border-radius: 50%;" /> -->
+            <!-- <h1>M4S</h1> -->
+            <img src="/img/mylogo.png" width="50" height="50" style="border-radius: 50%;" />
             <!-- <a href="/">M4S</a> -->
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">M4S</a>
+            <!-- <a href="index.html">M4S</a> -->
+            <img src="/img/mylogo.png" width="50" height="50" style="border-radius: 50%;" />
         </div>
 
         <ul class="sidebar-menu">

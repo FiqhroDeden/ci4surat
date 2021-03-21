@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\pegawaiModel;
 use App\Models\levelModel;
+use App\Models\rolesModel;
 
 class Profile extends BaseController
 {
@@ -11,6 +12,7 @@ class Profile extends BaseController
     {
         $this->pegawaiModel = new pegawaiModel();
         $this->levelModel = new levelModel();
+        $this->rolesModel = new rolesModel();
     }
     public function index()
     {

@@ -13,10 +13,16 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Admin</h4>
+                        <h4>Total Users</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        <?php $ro = 0 ?>
+                        <?php foreach ($groups_users as $g) {
+                            $g['group_id'];
+                            $rol = ++$ro;
+                        }
+                        echo $rol;
+                        ?>
                     </div>
                 </div>
             </div>
@@ -28,10 +34,21 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>News</h4>
+                        <h4>My Archives</h4>
                     </div>
                     <div class="card-body">
-                        42
+                        <?php
+                        $s = 0;
+                        foreach ($archive as $a) {
+                            if (user()->id === $a['user_id']) {
+                                $a['id'];
+                                $se = ++$s;
+                            } else {
+                                $se = $s;
+                            }
+                        }
+                        echo $se;
+                        ?>
                     </div>
                 </div>
             </div>
@@ -43,10 +60,17 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Reports</h4>
+                        <h4>Total Archives</h4>
                     </div>
                     <div class="card-body">
-                        1,201
+                        <?php
+                        $ar = 0;
+                        foreach ($archive as $a) {
+                            $a['id'];
+                            $arc = ++$ar;
+                        }
+                        echo $arc;
+                        ?>
                     </div>
                 </div>
             </div>
@@ -58,10 +82,13 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Online Users</h4>
+                        <h4>Year</h4>
                     </div>
                     <div class="card-body">
-                        47
+                        <?php
+                        $timezone = time() + (60 * 60 * 9);
+                        echo gmdate('Y', $timezone);
+                        ?>
                     </div>
                 </div>
             </div>
