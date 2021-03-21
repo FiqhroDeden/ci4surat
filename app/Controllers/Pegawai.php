@@ -103,6 +103,7 @@ class Pegawai extends BaseController
             $level = $this->request->getVar('group_id');
             $pass = $this->request->getVar('password_hash');
 
+
             if ($oldlevel == $level) {
                 if ($oldpass == $pass) {
                     $pegawai = [

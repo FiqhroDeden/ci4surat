@@ -26,15 +26,6 @@
                         <input type="hidden" name="id" value="<?= $pegawai['id']; ?>">
                         <input type="hidden" name="oldlevel" value="<?= $pegawai['level']; ?>">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">NIP</label>
-                            <div class="col-sm-9">
-                                <input type="text" value="<?= $pegawai['nip']; ?>" name="nip" class="form-control" required="">
-                                <div class="invalid-feedback">
-                                    NIP Wajib Diisi?
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                             <div class="col-sm-9">
                                 <input type="text" value="<?= $pegawai['nama_lengkap']; ?>" name="nama_lengkap" class="form-control" required="">

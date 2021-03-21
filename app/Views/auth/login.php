@@ -75,11 +75,11 @@
                     <?php endif; ?>
 
                     <div class="simple-footer">
-                        Copyright &copy; M4S <?php
-                                                $timezone = time() + (60 * 60 * 9);
-                                                echo gmdate('Y', $timezone);
+                        Copyright &copy; <a href="https://web.facebook.com/marthin.salakory.9">M4S</a> <?php
+                                                                                                        $timezone = time() + (60 * 60 * 9);
+                                                                                                        echo gmdate('Y', $timezone);
 
-                                                ?>
+                                                                                                        ?>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@
 
 
         <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="/img/atin.JPG" class="rounded-circle mr-1">
+                <img alt="image" src="/img/<?= user()->user_image; ?>" class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">Hi, <?= user()->nama_lengkap; ?></div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
@@ -19,8 +19,8 @@
                 </a>
                 <!-- <a href="features-activities.html" class="dropdown-item has-icon">
                     <i class="fas fa-bolt"></i> Activities
-                </a>
-                <a href="features-settings.html" class="dropdown-item has-icon">
+                </a> -->
+                <!-- <a href="features-settings.html" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
                 </a> -->
                 <div class="dropdown-divider"></div>

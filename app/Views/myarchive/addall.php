@@ -1,12 +1,12 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
 <div class="section-header">
-    <h1>Jabatan</h1>
+    <h1>Manage Archives</h1>
 </div>
 <div class="section-body">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4>Tambah Jabatan</h4>
+            <h4>Add Archive</h4>
             <div class="card-header-action">
                 <a href="/myarchive/document">
                     <button class=" btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i>Kembali</button>
