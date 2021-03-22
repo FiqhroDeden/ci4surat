@@ -105,7 +105,7 @@
         </div>
     </form>
 
-    // untuk ganti foto profile
+    <!-- untuk ganti foto profile -->
     <div class="modal fade" tabindex="-1" role="dialog" id="profile">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
