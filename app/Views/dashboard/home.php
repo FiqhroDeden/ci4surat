@@ -47,6 +47,9 @@
                                 $se = $s;
                             }
                         }
+                        if (!$archive) {
+                            $se = $s;
+                        }
                         echo $se;
                         ?>
                     </div>
@@ -68,6 +71,9 @@
                         foreach ($archive as $a) {
                             $a['id'];
                             $arc = ++$ar;
+                        }
+                        if (!$archive) {
+                            $arc = $ar;
                         }
                         echo $arc;
                         ?>
