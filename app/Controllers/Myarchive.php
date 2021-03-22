@@ -103,49 +103,53 @@ class Myarchive extends BaseController
 
     public function addall()
     {
-        session();
-        $data =
-            [
-                'title' => 'Tambah Document',
-                'document' => $this->documentModel->getdocument(),
-                'validation' => \Config\Services::validation(),
-                'users' => $this->usersModel->getuser(),
-            ];
-        return view('myarchive/addall', $data);
+        if (in_groups('admin')) {
+            session();
+            $data =
+                [
+                    'title' => 'Tambah Document',
+                    'document' => $this->documentModel->getdocument(),
+                    'validation' => \Config\Services::validation(),
+                    'users' => $this->usersModel->getuser(),
+                ];
+            return view('myarchive/addall', $data);
+        }
     }
 
     public function saveall()
     {
-        // // Validasi Input
-        // if (!$this->validate([
-        //     'name' => [
-        //         'rules' => 'required|is_unique[document.name]',
-        //         'errors' => [
-        //             'required' => 'nama file harus diisi',
-        //             'is_unique' => 'nama file sudah terdaftar'
-        //         ]
-        //     ],
-        // ])) {
-        //     return redirect()->to('/myarchive/documenttambah')->withInput();
-        // }
+        if (in_groups('admin')) {
+            // // Validasi Input
+            // if (!$this->validate([
+            //     'name' => [
+            //         'rules' => 'required|is_unique[document.name]',
+            //         'errors' => [
+            //             'required' => 'nama file harus diisi',
+            //             'is_unique' => 'nama file sudah terdaftar'
+            //         ]
+            //     ],
+            // ])) {
+            //     return redirect()->to('/myarchive/documenttambah')->withInput();
+            // }
 
-        // Ambil File
-        $file = $this->request->getFile('filename');
-        // genetrate nama file random
-        $namafile = $file->getRandomName();
-        // pindahkan file ke folder
-        $file->move('archive', $namafile);
+            // Ambil File
+            $file = $this->request->getFile('filename');
+            // genetrate nama file random
+            $namafile = $file->getRandomName();
+            // pindahkan file ke folder
+            $file->move('archive', $namafile);
 
 
-        $this->documentModel->save([
-            'user_id' => $this->request->getVar('user'),
-            'name' => $this->request->getVar('name'),
-            'filename' => $namafile,
-            'date' => Time::now('Asia/Tokyo', 'en_US'),
-            'detail' => $this->request->getVar('detail'),
-        ]);
-        session()->setFlashdata('pesan', 'file document berhasil tambahkan.');
-        return redirect()->to('/myarchive/all');
+            $this->documentModel->save([
+                'user_id' => $this->request->getVar('user'),
+                'name' => $this->request->getVar('name'),
+                'filename' => $namafile,
+                'date' => Time::now('Asia/Tokyo', 'en_US'),
+                'detail' => $this->request->getVar('detail'),
+            ]);
+            session()->setFlashdata('pesan', 'file document berhasil tambahkan.');
+            return redirect()->to('/myarchive/all');
+        }
     }
 
 

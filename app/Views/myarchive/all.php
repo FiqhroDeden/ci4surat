@@ -1,7 +1,7 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
 <div class="section-header">
-    <h1>All Document</h1>
+    <h1>Manage Archives</h1>
 </div>
 <div class="section-body">
     <?php if (session()->getFlashdata('pesan')) : ?>
@@ -11,7 +11,7 @@
     <?php endif; ?>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4>Manage All Document</h4>
+            <h4>Manage Archives</h4>
             <div class="card-header-action">
                 <a href="/myarchive/addall">
                     <button class=" btn btn-primary btn-sm"><i class="fa fa-plus"></i>Tambah Document</button>

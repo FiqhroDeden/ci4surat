@@ -33,7 +33,7 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link has-dropdown"><i class="fas fa-folder"></i><span>Admin Menu</span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="nav-link" href="<?= base_url('pegawai/index'); ?>">Manage Users</a></li>
+                            <li><a class="nav-link" href="<?= base_url('users/index'); ?>">Manage Users</a></li>
                             <li><a class="nav-link" href="/myarchive/all">All Archives</a></li>
                         </ul>
                     </li>
