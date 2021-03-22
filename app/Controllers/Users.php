@@ -6,7 +6,7 @@ use App\Models\rolesModel;
 use App\Models\pegawaiModel;
 use App\Models\levelModel;
 
-class Pegawai extends BaseController
+class Users extends BaseController
 {
     public function __construct()
     {
@@ -19,22 +19,22 @@ class Pegawai extends BaseController
         if (in_groups('admin')) {
             $data =
                 [
-                    'title' => 'Pegawai',
+                    'title' => 'Manage Users',
                     'pegawai' => $this->pegawaiModel->getPegawai(),
                     'level' => $this->levelModel->getlevel(),
                 ];
-            return view('pegawai/index', $data);
+            return view('users/index', $data);
         }
     }
-    public function tambah()
+    public function add()
     {
         if (in_groups('admin')) {
             $data =
                 [
-                    'title' => 'Tambah Pegawai',
+                    'title' => 'Add New User',
                     'roles' => $this->rolesModel->findAll(),
                 ];
-            return view('pegawai/tambah', $data);
+            return view('users/tambah', $data);
         }
     }
     public function save()
@@ -74,7 +74,7 @@ class Pegawai extends BaseController
                 'user_id' => $user_id,
             ]);
             session()->setFlashdata('pesan', 'Data Pegawai berhasil ditambahkan.');
-            return redirect()->to('/pegawai');
+            return redirect()->to('/users');
         }
     }
     public function edit($id)
@@ -87,11 +87,11 @@ class Pegawai extends BaseController
 
             $data =
                 [
-                    'title' => 'Edit Pegawai',
+                    'title' => 'Update User',
                     'pegawai' => $this->pegawaiModel->getPegawai($id),
                     'roles' => $this->rolesModel->findAll(),
                 ];
-            return view('pegawai/edit', $data);
+            return view('users/edit', $data);
         }
     }
     public function update()
@@ -196,7 +196,7 @@ class Pegawai extends BaseController
                 ]);
             }
             session()->setFlashdata('pesan', 'Data Pegawai berhasil diupdate.');
-            return redirect()->to('/pegawai');
+            return redirect()->to('/users');
         }
     }
     public function delete($id)
@@ -204,7 +204,7 @@ class Pegawai extends BaseController
         if (in_groups('admin')) {
             $this->pegawaiModel->delete($id);
             session()->setFlashdata('pesan', 'Data berhasil dihapus.');
-            return redirect()->to('/pegawai');
+            return redirect()->to('/users');
         }
     }
 

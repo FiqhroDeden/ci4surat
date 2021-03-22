@@ -13,7 +13,7 @@
         <div class="card-header py-3">
             <h4>Manage Users</h4>
             <div class="card-header-action">
-                <a href=" <?= base_url('Pegawai/tambah'); ?>">
+                <a href=" <?= base_url('users/add'); ?>">
                     <button class=" btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Pegawai</button>
                 </a>
             </div>
@@ -49,8 +49,8 @@
                                                                                     : ($p['name'] == 'pegawai' ? 'success'
                                                                                         : 'warning'))); ?>"><?= $p['name']; ?></span></td>
                                 <td>
-                                    <a href="/pegawai/edit/<?= $p['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></a>
-                                    <a href="/pegawai/delete/<?= $p['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>
+                                    <a href="/users/edit/<?= $p['id']; ?>" class="btn btn-primary"><span class="fa fa-edit"></span></a>
+                                    <a href="/users/delete/<?= $p['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger"><span class="fa fa-trash"></span></a>
                                 </td>
 
 

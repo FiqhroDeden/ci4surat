@@ -8,7 +8,7 @@
         <div class="card-header py-3">
             <h4>Update User</h4>
             <div class="card-header-action">
-                <a href=" <?= base_url('Pegawai/index'); ?>">
+                <a href=" <?= base_url('users/index'); ?>">
                     <button class=" btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</button>
                 </a>
             </div>
@@ -21,7 +21,7 @@
 
                 </div>
                 <div class="col-md-6 col-sm-10">
-                    <form class="needs-validation" action="/pegawai/update/<?= $pegawai['id']; ?>" method="POST" novalidate="">
+                    <form class="needs-validation" action="/users/update/<?= $pegawai['id']; ?>" method="POST" novalidate="">
                         <input type="hidden" name="oldpass" value="<?= $pegawai['password_hash']; ?>">
                         <input type="hidden" name="id" value="<?= $pegawai['id']; ?>">
                         <input type="hidden" name="oldlevel" value="<?= $pegawai['level']; ?>">
